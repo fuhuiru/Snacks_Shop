@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-let appKey = '7cc7d3a029d78884bdceac8782f43d164a16b65e8cd8ed89bfabb073065b52e0';
+let appKey = '6726cc95efa88ef2207b30d75158e6fade5051c111ede783e03dc31ec196ec4a';
 
 window.api = api;
 

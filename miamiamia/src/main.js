@@ -12,6 +12,8 @@ import Home from './page/Home'
 import Product from "./page/Product"
 import Login from "./page/Login"
 import Signup from "./page/Signup"
+import Recover from "./page/Recover"
+
 
 import Setting from "./page/Setting"
 import My from "./page/My"
@@ -46,6 +48,10 @@ let  router = new VueRouter({
     {
       path:"/login",
       component:Login,
+    },
+    {
+      path:'/recover',
+      component:Recover,
     },
     {
       path:"/signup",
