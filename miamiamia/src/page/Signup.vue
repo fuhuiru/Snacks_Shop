@@ -7,7 +7,7 @@
               <el-tab-pane name="phone" label="手机注册">
                 <el-form-item label="手机号">
                   <el-input v-model="form.phone"></el-input>
-                </el-form-item>
+                </el-form-item> 
               </el-tab-pane>
               <el-tab-pane name="email" label="邮箱注册">
                 <el-form-item label="邮箱">

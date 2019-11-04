@@ -32,7 +32,8 @@ function user (key) {
 }
 
 function isAdmin () {
-  return user().IS_ADMIN;
+  let u = user();
+  return u && u.IS_ADMIN;
 }
 
 export default {

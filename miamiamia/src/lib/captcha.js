@@ -1,33 +1,31 @@
-let countDown = 60;
+let countDown = 0;
 let timer;
-let action;
-import api from "../lib/api"
 
-export function send(sendby,reciver,onsend){
-    console.log(111);
-    if(!countDown)
-    return;
+/**
+ * 发送验证码
+ * @param sendBy (phone|mail)
+ * @param {string} receiver 手机或邮箱
+ * @return {Promise}
+ */
+import api from "./api"
+export function send(sendBy, receiver, onSend) {
 
-    timer = setInterval(() => {
-        countDown--;
-        if(countDown == 0){
-            clearInterval(timer);
-        }
-    }, 1000);
-    
-    if(sendby == "phone"){
-        action = "sms"
-    }else{
-        action = "mail"
-    }
 
-    return api(`captcha/${action}`,{[sendby]:reciver})
-        .then(r=>{
-            let code = atob(r.data.result);
-            if(onsend){
-                onsend(code)
-            }
-            return code;
-        })
+  let action;
 
+  if (sendBy == 'phone') {
+    action = 'sms';
+  } else {
+    action = 'mail';
+  }
+
+  return api(`captcha/${action}`, { [sendBy] : receiver })
+    .then(r => {
+      let code = atob(r.data.result)
+
+      if(onSend)
+        onSend(code);
+
+      return code;
+    });
 }

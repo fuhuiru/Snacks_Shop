@@ -1,32 +1,43 @@
 <template>
   <div>
-    <el-row :gutter="20">
-      <el-col :span="3">
-        <el-menu
-          default-active="user"
-          :router="true"
-          class="el-menu-vertical-demo"
-         
-        >
-          <el-menu-item index="user">
-            <!-- <i class="el-icon-menu"></i> -->
-            <span slot="title">用户管理</span>
-          </el-menu-item>
+    <el-row :gutter="10">
+      <el-col :span="4">
+        <el-menu default-active="cart"
+                 :router="true"
+                 class="el-menu-vertical-demo"
+                 @open="handleOpen"
+                 @close="handleClose">
           <el-menu-item index="order">
-            <!-- <i class="el-icon-document"></i> -->
-            <span slot="title">订单管理</span>
+            <router-link slot="title" to="/admin/order">订单管理</router-link>
+          </el-menu-item>
+          <el-menu-item index="user">
+            <router-link slot="title" to="/admin/user">用户管理</router-link>
           </el-menu-item>
           <el-menu-item index="brand">
-            <!-- <i class="el-icon-setting"></i> -->
-            <span slot="title">品牌设置</span>
+            <router-link slot="title" to="/admin/brand">品牌管理</router-link>
+          </el-menu-item>
+          <el-menu-item index="cat">
+            <router-link slot="title" to="/admin/cat">分类管理</router-link>
+          </el-menu-item>
+          <el-menu-item index="product">
+            <router-link slot="title" to="/admin/product">商品管理</router-link>
           </el-menu-item>
         </el-menu>
       </el-col>
-      <el-col :span="21">
-          <router-view></router-view>
-
+      <el-col :span="18">
+        <router-view></router-view>
       </el-col>
     </el-row>
-    
   </div>
 </template>
+
+<script>
+  import '../../css/admin.css';
+
+  export default {
+    methods: {
+      handleOpen() {},
+      handleClose() {},
+    }
+  };
+</script>
